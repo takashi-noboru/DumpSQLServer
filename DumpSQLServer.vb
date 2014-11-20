@@ -47,6 +47,8 @@ Module modMasterDB
                     Case 48 ' tinyint
                     Case 52 ' smallint
                     Case 56 ' int
+                    Case 59 ' real
+                    Case 61 ' datetime
                     Case 104 ' Bit
                     Case 127 ' Bigint
                     Case 106 ' Decimal
@@ -115,6 +117,10 @@ Module modMasterDB
                                 sValues &= drRows.Item(drColumns.Item("name"))
                             Case 56 ' int
                                 sValues &= drRows.Item(drColumns.Item("name"))
+                            Case 59 ' real
+                                sValues &= drRows.Item(drColumns.Item("name"))
+                            Case 61 ' Datetime
+                                sValues &= "'" & drRows.Item(drColumns.Item("name")) & "'"
                             Case 104 ' Bit
                                 sValues &= IIf(drRows.Item(drColumns.Item("name")), 1, 0)
                             Case 127 ' Bigint
