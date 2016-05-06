@@ -51,7 +51,7 @@ Module modMasterDB
                     Case 61 ' datetime
                     Case 104 ' Bit
                     Case 127 ' Bigint
-                    Case 106 ' Decimal
+                    Case 106, 108 ' Decimal,Numeric
                         sw.Write("(" & drColumns.Item("precision") & "," & drColumns.Item("scale") & ") ")
                     Case Else
                         sw.Write("(" & drColumns.Item("max_length") & ") ")
@@ -132,7 +132,7 @@ Module modMasterDB
                                     iTmp += (CType(drRows.Item(drColumns.Item("name")), Array)(i))
                                 Next
                                 sValues &= iTmp
-                            Case 106 ' Decimal
+                            Case 106 , 108 ' Decimal , Numeric
                                 sValues &= drRows.Item(drColumns.Item("name"))
                             Case Else
                                 sValues &= "'" & drRows.Item(drColumns.Item("name")) & "'"
